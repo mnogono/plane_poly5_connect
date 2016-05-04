@@ -184,11 +184,11 @@ function createGui() {
 
         //surface mesh
 
-        var N  = 30;
+        var N  = DATA.v2;
 
         var geometryResult = new THREE.Geometry();
         for (var u2 = 0; u2 < 100; u2++) {
-            for (var v = 0; v < N; v++) {
+            for (var v = DATA.v1; v < N; v++) {
                 var u = u2 / 100.0;
                 var x = a[0]*Math.pow(u, 5)+b[0]*Math.pow(u,4)+c[0]*Math.pow(u,3)+d[0]*Math.pow(u,2)+e[0]*Math.pow(u, 1)+f[0]+v*l[0];
                 var y = a[1]*Math.pow(u, 5)+b[1]*Math.pow(u,4)+c[1]*Math.pow(u,3)+d[1]*Math.pow(u,2)+e[1]*Math.pow(u, 1)+f[1]+v*l[1];
@@ -268,6 +268,9 @@ function sourceDataChange() {
 	
 	DATA.d2 = parseFloat($("#d2").val());
 	
+	DATA.v1 = parseFloat($("#v1").val());
+	DATA.v2 = parseFloat($("#v2").val());
+	
     updatePlane(plane1, meshPlane1, DATA.n1x, DATA.n1y, DATA.n1z, DATA.constant1);
     updatePlane(plane2, meshPlane2, DATA.n2x, DATA.n2y, DATA.n2z, DATA.constant2);
 	DATA.calculate();
@@ -291,7 +294,13 @@ $(document).ready(function() {
 	});
 	$("#d2").change(function(){
 		sourceDataChange();
-	});		
+	});
+	$("#v1").change(function(){
+		sourceDataChange();
+	});
+	$("#v2").change(function(){
+		sourceDataChange();
+	});
 	/*
 	$("#calculate").click(function() {
 		DATA.calculate();

@@ -18,7 +18,10 @@ var DATA = {
     M2z: 0,
 
     d1: 5,
-    d2: 5
+    d2: 5,
+	
+	v1: 0,
+	v2: 30
 };
 
 /** @type{THREE.Raycaster} */
